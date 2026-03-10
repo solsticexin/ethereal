@@ -28,7 +28,7 @@ namespace eirian {
         ~Channel() = default;
 
         // 核心：当 Epoll 发现这个 fd 有事件时，调用这个函数
-        void handleEvent();
+        void handleEvent() const;
 
         // 开启监听可读事件
         void enableReading();

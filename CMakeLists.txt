@@ -42,7 +42,7 @@ target_include_directories(eirian
 target_compile_features(eirian PUBLIC cxx_std_20)
 target_link_libraries(eirian PUBLIC spdlog::spdlog_header_only)
 
-add_executable(eirian_app src/main.cpp)
+add_executable(eirian_app main.cpp)
 target_link_libraries(eirian_app PRIVATE eirian)
 
 option(EIRIAN_BUILD_TESTS "Build test executables" ON)

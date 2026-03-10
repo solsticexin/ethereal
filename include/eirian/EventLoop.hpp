@@ -5,7 +5,6 @@
 #ifndef EIRIAN_EVENTLOOP_HPP
 #define EIRIAN_EVENTLOOP_HPP
 #include "eirian/Epoll.h"
-#include <vector>
 #include <atomic>
 #include <unordered_map>
 

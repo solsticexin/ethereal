@@ -44,7 +44,7 @@ int main() {
         server_socket.listen();
 
         eirian::Epoll epoll_{16};
-        epoll_.update(server_socket.getFd(), EPOLLIN);
+        epoll_.add(server_socket.getFd(), EPOLLIN);
         eirian::log::info("epoll add fd={}, events=EPOLLIN", server_socket.getFd());
 
         client_thread = std::thread([server_port]() {

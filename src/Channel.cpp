@@ -11,7 +11,7 @@
 namespace eirian{
     Channel::Channel(EventLoop* loop,const int fd):loop_(loop),fd_(fd),events_(0),revents_(0) {}
 
-    void Channel::handleEvent() {
+    void Channel::handleEvent() const {
         // 1. 处理对方挂断事件
         if ((this->revents_ & EPOLLHUP) && !(this->events_ & EPOLLIN)) {
             if (closeCallback_) closeCallback_();
