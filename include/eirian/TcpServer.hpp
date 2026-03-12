@@ -8,6 +8,7 @@
 #include "eirian/socket.hpp"
 #include "eirian/Channel.hpp"
 #include "eirian/TcpConnection.hpp"
+#include "eirian/EventLoopThreadPool.hpp"
 
 #include <memory>
 #include <unordered_map>
@@ -26,6 +27,8 @@ namespace eirian {
         std::unordered_map<int, std::shared_ptr<TcpConnection>> connections_;
 
         std::function<void(std::shared_ptr<TcpConnection>,std::string&)> messageCallback_;
+
+        std::unique_ptr<EventLoopThreadPool> threadPool_;
         void newConnection();
         void removeConnection(const std::shared_ptr<TcpConnection>& conn);
     public:
@@ -36,6 +39,9 @@ namespace eirian {
             messageCallback_ = std::move(cb);
         }
         void start();
+        void setThreadNum(const int numThreads) const {
+            threadPool_->setThreadNum(numThreads);
+        }
     };
 }
 

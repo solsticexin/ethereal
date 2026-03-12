@@ -36,6 +36,7 @@ add_library(eirian
         src/TcpConnection.cpp
         src/TcpServer.cpp
         src/EventLoopThread.cpp
+        src/EventLoopThreadPool.cpp
 )
 
 target_include_directories(eirian
