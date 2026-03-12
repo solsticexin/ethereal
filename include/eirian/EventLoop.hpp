@@ -27,6 +27,7 @@ namespace eirian {
         /// 供 Channel 调用的管理接口
         void updateChannel(Channel* channel);
         void removeChannel(Channel* channel);
+        void quit();
     };
 } // eirian
 
